@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 这里是为了将 checkBox 中 String 类型转换为对象
+ */
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
 
