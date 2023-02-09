@@ -1,6 +1,11 @@
 #spring.thymeleaf.cache=false
 
 spring:
+  sql:
+    init:
+      mode: embedded
+      data-locations: classpath:data.sql # 实际没生效，不知道为什么
+      schema-locations: classpath:schema.sql
   datasource:
     generate-unique-name: false
     name: tacocloud

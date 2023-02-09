@@ -17,10 +17,6 @@ public class IngredientRef {
 
     private String ingredient;
 
-    public IngredientRef(String ingredient) {
-        this.ingredient = ingredient;
-    }
-
     protected IngredientRef() {
 
     }
