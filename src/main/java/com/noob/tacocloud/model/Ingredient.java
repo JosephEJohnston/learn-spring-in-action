@@ -1,12 +1,14 @@
 package com.noob.tacocloud.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 
-@Data
-@Document(collection = "ingredients")
+@Getter
+@Setter
+@ToString
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {

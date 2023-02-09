@@ -1,19 +1,6 @@
 #spring.thymeleaf.cache=false
 
-#spring:
-#  cassandra:
-#    keyspace-name: taco_cloud # 使用的键空间
-#    schema-action: recreate # 应用启动时废弃并重建所有表
-#    local-datacenter: datacenter1 # 确定本地数据中心的名称
-#    username: tacocloud
-#    password: s3cr3tP455w0rd
-
-# 内嵌 mongodb 实际上不能使用，springboot 版本太新
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      username: tacocloud
-      password: s3cr3tp455w0rd
-      database: tacoclouddb # 数据库名
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
