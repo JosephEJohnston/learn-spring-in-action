@@ -38,9 +38,22 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-cassandra</artifactId>
+        </dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+
+        <!-- 内嵌式 mongo 数据库 -->
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <version>4.4.1</version>
+<!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
