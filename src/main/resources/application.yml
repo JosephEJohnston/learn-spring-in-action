@@ -1,11 +1,11 @@
 #spring.thymeleaf.cache=false
 
 spring:
-  sql:
-    init:
-      mode: embedded
-      data-locations: classpath:data.sql # 实际没生效，不知道为什么
-      schema-locations: classpath:schema.sql
+#  sql:
+#    init:
+#      mode: embedded
+#      data-locations: classpath:data.sql # 实际没生效，不知道为什么
+#      schema-locations: classpath:schema.sql
   datasource:
     generate-unique-name: false
     name: tacocloud
@@ -30,3 +30,7 @@ server:
     key-store-password: letmein
     key-password: letmein
   port: 8443
+
+taco:
+  orders:
+    pageSize: 10

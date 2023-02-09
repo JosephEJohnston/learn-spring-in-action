@@ -1,0 +1,6 @@
+{"properties": [{
+  "name": "taco.orders.page-size",
+  "type": "java.lang.Integer",
+  "sourceType": "com.noob.tacocloud.component.OrderProps",
+  "description": "Sets the maximum number of orders to display in a list."
+}]}

@@ -44,7 +44,7 @@ public class SecurityConfig {
                 )
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/design", true)
+                //.defaultSuccessUrl("/design", true)
                 .and()
                 .oauth2Login()
                 // 可以在 login 页面中提供 Facebook 登录的链接
