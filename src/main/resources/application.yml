@@ -8,10 +8,11 @@
 #    username: tacocloud
 #    password: s3cr3tP455w0rd
 
+# 内嵌 mongodb 实际上不能使用，springboot 版本太新
 spring:
   data:
     mongodb:
-      host: mongodb.tacocloud.com
+      host: localhost
       port: 27017
       username: tacocloud
       password: s3cr3tp455w0rd
