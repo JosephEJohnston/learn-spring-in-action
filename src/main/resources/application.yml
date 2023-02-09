@@ -21,6 +21,10 @@ spring:
               - email
               - public_profile
 
+#  profiles:
+#    active:
+#      - prod
+
 #server:
 #  port: 0 # 设置为 0 时，会任选可用端口启动
 
