@@ -20,6 +20,7 @@ create table if not exists Taco (
 );
 
 create table if not exists Ingredient_Ref (
+    id identity,
   `ingredient` varchar(4) not null,
   taco bigint not null,
   taco_key bigint not null

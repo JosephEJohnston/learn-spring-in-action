@@ -1,13 +1,9 @@
 package com.noob.tacocloud.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.List;
@@ -30,4 +26,7 @@ public class Taco {
     @Size(min = 1, message = "You must choose at least 1 ingredient")
     @ManyToMany
     private List<IngredientRef> ingredients;
+
+    public Taco() {
+    }
 }

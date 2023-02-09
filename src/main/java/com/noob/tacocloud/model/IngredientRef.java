@@ -1,10 +1,27 @@
 package com.noob.tacocloud.model;
 
-import lombok.Data;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.*;
 
-@Data
-@Table
+@Getter
+@Setter
+@ToString
+@Entity
 public class IngredientRef {
-    private final String ingredient;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private String ingredient;
+
+    public IngredientRef(String ingredient) {
+        this.ingredient = ingredient;
+    }
+
+    protected IngredientRef() {
+
+    }
 }

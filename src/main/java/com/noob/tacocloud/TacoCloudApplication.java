@@ -1,11 +1,7 @@
 package com.noob.tacocloud;
 
-import com.noob.tacocloud.dao.IngredientRepository;
-import com.noob.tacocloud.model.Ingredient;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class TacoCloudApplication {
