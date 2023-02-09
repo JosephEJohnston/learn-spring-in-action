@@ -11,7 +11,6 @@ public class WebConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         // 直接声明控制器，不需要创建 Controller
         // registry.addViewController("/").setViewName("home");
-
-
+        registry.addViewController("/login");
     }
 }

@@ -33,8 +33,18 @@ create table if not exists Ingredient (
   `type` varchar(10) not null
 );
 
-
 alter table IF EXISTS Taco
     add foreign key (taco_order) references Taco_Order(id);
 alter table IF EXISTS Ingredient_Ref
     add foreign key (`ingredient`) references Ingredient(`id`);
+
+create table if not exists `User_` (
+    `id` identity,
+    `username` varchar(24),
+    `fullname` varchar(64),
+    `street` varchar(32),
+    `city` varchar(32),
+    `state` varchar(32),
+    `zip` varchar(32),
+    `phone_number` varchar(64)
+);

@@ -1,17 +1,15 @@
 package com.noob.tacocloud.config;
 
+import com.noob.tacocloud.dao.UserRepository;
+import com.noob.tacocloud.model.security.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
@@ -22,16 +20,33 @@ public class SecurityConfig {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-        List<UserDetails> usersList = new ArrayList<>();
-        usersList.add(new User("buzz",
-                encoder.encode("password"),
-                List.of(new SimpleGrantedAuthority("ROLE_USER"))));
+    public UserDetailsService userDetailsService(UserRepository userRepository) {
+        return username -> {
+            User user = userRepository.findByUsername(username);
+            if (user != null) {
+                return user;
+            }
 
-        usersList.add(new User("woody",
-                encoder.encode("password"),
-                List.of(new SimpleGrantedAuthority("ROLE_USER"))));
+            throw new UsernameNotFoundException("User '" + username + "' not found.");
+        };
+    }
 
-        return new InMemoryUserDetailsManager(usersList);
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+        return httpSecurity
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/design", "/orders").hasRole("USER")
+                        .requestMatchers("/", "/**").permitAll())
+                .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/design", true)
+                .and()
+                .oauth2Login()
+                // 可以在 login 页面中提供 Facebook 登录的链接
+                .loginPage("/login")
+                .and()
+                .logout()
+                .and()
+                .build();
     }
 }
