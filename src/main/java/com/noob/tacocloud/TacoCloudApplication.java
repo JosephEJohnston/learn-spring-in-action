@@ -9,7 +9,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import javax.sql.DataSource;
 
 @SpringBootApplication
 public class TacoCloudApplication {
@@ -44,4 +48,15 @@ public class TacoCloudApplication {
                     "test_state", "test_zip", "test_phone_number"));
         };
     }
+
+    /*
+    // 可由自动配置实现
+    @Bean
+    public DataSource dataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("taco_schema.sql")
+                .addScripts("user_data.sql", "ingredient_data.sql")
+                .build();
+    }*/
 }
