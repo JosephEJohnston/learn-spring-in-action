@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
@@ -46,6 +47,11 @@ public class TacoCloudApplication {
                     "test_state", "test_zip", "test_phone_number"));
         };
     }*/
+
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
     @Bean
     public CommandLineRunner dataLoader(
