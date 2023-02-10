@@ -12,6 +12,7 @@
 
     <modules>
         <module>resource-server</module>
+        <module>authorization-server</module>
     </modules>
 
     <groupId>com.noob</groupId>
