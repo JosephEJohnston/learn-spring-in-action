@@ -21,6 +21,10 @@ spring:
               - email
               - public_profile
 
+  data:
+    rest:
+      base-path: /dataApi # 指定 spring-rest 生成的基础路径，注意字符转义问题
+
 #  profiles:
 #    active:
 #      - prod
