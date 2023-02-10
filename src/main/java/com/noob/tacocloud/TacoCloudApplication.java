@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -30,6 +31,8 @@ public class TacoCloudApplication {
      * <p>两者的区别是参数</p>
      */
     @Bean
+    // @Profile("dev") // 指定 dev 配置才运行
+    // @Profile("!prod") // 非 prod 配置都运行
     public CommandLineRunner dataLoader(IngredientRepository ingredientRepository, UserRepository userRepository) {
         return args -> {
             ingredientRepository.save(new Ingredient("FLTO", "Flour Tortilla", Ingredient.Type.WRAP));
