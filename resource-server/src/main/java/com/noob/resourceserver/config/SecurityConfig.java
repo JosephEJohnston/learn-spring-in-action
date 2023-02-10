@@ -1,7 +1,7 @@
 package com.noob.resourceserver.config;
 
-import com.noob.resourceserver.dao.UserRepository;
-import com.noob.resourceserver.model.security.User;
+import com.noob.commons.dao.UserRepository;
+import com.noob.commons.model.security.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

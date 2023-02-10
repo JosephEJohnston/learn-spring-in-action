@@ -1,21 +1,36 @@
 package com.noob.resourceserver;
 
+import com.noob.commons.dao.UserRepository;
+import com.noob.commons.model.security.User;
 import com.noob.resourceserver.dao.IngredientRepository;
 import com.noob.resourceserver.dao.TacoRepository;
-import com.noob.resourceserver.dao.UserRepository;
 import com.noob.resourceserver.model.Ingredient;
 import com.noob.resourceserver.model.Taco;
-import com.noob.resourceserver.model.security.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {
+        "com.noob.resourceserver.**",
+        "com.noob.commons.**"
+})
+@EntityScan(basePackages = {
+        "com.noob.resourceserver.**",
+        "com.noob.commons.**"
+})
+@EnableJpaRepositories(basePackages = {
+        "com.noob.resourceserver.**",
+        "com.noob.commons.**"
+})
 public class ResourceServerApplication {
 
     public static void main(String[] args) {

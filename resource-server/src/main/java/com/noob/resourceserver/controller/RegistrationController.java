@@ -1,8 +1,7 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.dao.UserRepository;
+import com.noob.commons.dao.UserRepository;
 import com.noob.resourceserver.model.RegistrationForm;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,6 @@ public class RegistrationController {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    @Autowired
     public RegistrationController(UserRepository userRepository,
                                   PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;

@@ -1,6 +1,6 @@
 package com.noob.resourceserver.model;
 
-import com.noob.resourceserver.model.security.User;
+import com.noob.commons.model.security.User;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

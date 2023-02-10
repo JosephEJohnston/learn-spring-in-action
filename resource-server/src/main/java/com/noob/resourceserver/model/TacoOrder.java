@@ -1,6 +1,6 @@
 package com.noob.resourceserver.model;
 
-import com.noob.resourceserver.model.security.User;
+import com.noob.commons.model.security.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;

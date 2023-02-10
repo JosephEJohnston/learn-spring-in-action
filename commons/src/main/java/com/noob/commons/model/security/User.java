@@ -1,4 +1,4 @@
-package com.noob.resourceserver.model.security;
+package com.noob.commons.model.security;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
