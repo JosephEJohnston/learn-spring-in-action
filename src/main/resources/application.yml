@@ -28,12 +28,13 @@ spring:
 #server:
 #  port: 0 # 设置为 0 时，会任选可用端口启动
 
-server:
-  ssl:
-    key-store: classpath:mykeys.jks
-    key-store-password: letmein
-    key-password: letmein
-  port: 8443
+# 使用 https
+#server:
+#  ssl:
+#    key-store: classpath:mykeys.jks
+#    key-store-password: letmein
+#    key-password: letmein
+#  port: 8443
 
 taco:
   orders:
