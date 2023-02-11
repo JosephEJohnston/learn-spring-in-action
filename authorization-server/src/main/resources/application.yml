@@ -1,6 +1,13 @@
 server:
   port: 8081
 
+spring:
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          jwk-set-uri: http://localhost:8081/oauth2/jwks
+
 management:
   endpoints:
     web:
