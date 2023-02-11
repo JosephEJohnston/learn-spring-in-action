@@ -2,7 +2,6 @@ package com.noob.resourceserver.config;
 
 import com.noob.commons.dao.UserRepository;
 import com.noob.commons.model.security.User;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -21,9 +20,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    @Value("${spring.security.oauth2.resource-server.jwt.jwk-set-uri}")
-    private String jwkSetUri;
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -32,7 +28,7 @@ public class SecurityConfig {
     @Bean
     public JwtDecoder jwtDecoder() {
         return NimbusJwtDecoder
-                .withJwkSetUri(jwkSetUri)
+                .withJwkSetUri("http://localhost:8081/oauth2/jwks")
                 .build();
     }
 
