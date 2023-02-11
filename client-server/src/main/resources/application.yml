@@ -12,6 +12,7 @@ spring:
             scope: writeIngredients,deleteIngredients # not to add openid now
         provider:
           taco-cloud:
-            issuer-uri: http://authserver:8081
+            authorization-uri: http://authserver:8081/oauth2/authorize
+            token-uri: http://authserver:8081/oauth2/token
 server:
   port: 8082
