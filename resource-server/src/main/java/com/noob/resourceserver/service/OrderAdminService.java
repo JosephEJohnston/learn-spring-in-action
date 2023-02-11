@@ -1,4 +1,4 @@
-package com.noob.resourceserver.dao;
+package com.noob.resourceserver.service;
 
 public interface OrderAdminService {
     void deleteAllOrders();

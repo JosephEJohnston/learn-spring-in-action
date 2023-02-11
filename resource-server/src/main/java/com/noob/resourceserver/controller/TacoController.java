@@ -1,6 +1,6 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.dao.TacoRepository;
+import com.noob.resourceserver.service.TacoRepository;
 import com.noob.resourceserver.model.Taco;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

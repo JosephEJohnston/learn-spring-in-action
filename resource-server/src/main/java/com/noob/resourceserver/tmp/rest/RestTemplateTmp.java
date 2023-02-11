@@ -1,6 +1,6 @@
 package com.noob.resourceserver.tmp.rest;
 
-import com.noob.resourceserver.model.Ingredient;
+import com.noob.commons.model.Ingredient;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

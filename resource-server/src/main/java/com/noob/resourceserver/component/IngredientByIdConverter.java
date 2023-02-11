@@ -1,7 +1,7 @@
 package com.noob.resourceserver.component;
 
-import com.noob.resourceserver.dao.IngredientRepository;
-import com.noob.resourceserver.model.Ingredient;
+import com.noob.resourceserver.service.IngredientRepository;
+import com.noob.commons.model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

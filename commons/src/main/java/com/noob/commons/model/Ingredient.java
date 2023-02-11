@@ -1,4 +1,4 @@
-package com.noob.resourceserver.model;
+package com.noob.commons.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

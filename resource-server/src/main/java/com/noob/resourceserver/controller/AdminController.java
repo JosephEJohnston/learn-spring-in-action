@@ -1,6 +1,6 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.dao.OrderAdminService;
+import com.noob.resourceserver.service.OrderAdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

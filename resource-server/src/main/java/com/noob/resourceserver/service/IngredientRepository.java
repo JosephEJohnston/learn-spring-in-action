@@ -1,6 +1,6 @@
-package com.noob.resourceserver.dao;
+package com.noob.resourceserver.service;
 
-import com.noob.resourceserver.model.Ingredient;
+import com.noob.commons.model.Ingredient;
 import org.springframework.data.repository.CrudRepository;
 
 

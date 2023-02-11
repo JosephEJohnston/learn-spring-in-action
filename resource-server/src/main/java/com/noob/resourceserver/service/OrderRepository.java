@@ -1,4 +1,4 @@
-package com.noob.resourceserver.dao;
+package com.noob.resourceserver.service;
 
 import com.noob.commons.model.security.User;
 import com.noob.resourceserver.model.TacoOrder;

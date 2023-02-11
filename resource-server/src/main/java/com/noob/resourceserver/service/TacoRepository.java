@@ -1,4 +1,4 @@
-package com.noob.resourceserver.dao;
+package com.noob.resourceserver.service;
 
 import com.noob.resourceserver.model.Taco;
 import org.springframework.data.domain.Page;
