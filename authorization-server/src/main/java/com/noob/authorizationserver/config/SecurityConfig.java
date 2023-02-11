@@ -20,8 +20,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests.anyRequest().authenticated()
                 )
-                .formLogin()
-                .and().build();
+                // 用 formLogin 会导致 clientServer 没法启动
+                //.formLogin().and()
+                .build();
     }
 
     @Bean
