@@ -14,5 +14,13 @@ spring:
           taco-cloud:
             authorization-uri: http://authserver:8081/oauth2/authorize
             token-uri: http://authserver:8081/oauth2/token
+            user-info-uri: http://authserver:8081/userinfo
+            user-name-attribute: sub
 server:
   port: 8082
+
+logging:
+  level:
+    org.springframework.web: trace
+    org.springframework.security: trace
+    org.springframework.security.oauth2: trace
