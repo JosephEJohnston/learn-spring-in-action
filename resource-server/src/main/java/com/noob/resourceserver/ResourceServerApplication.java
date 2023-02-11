@@ -1,6 +1,7 @@
 package com.noob.resourceserver;
 
 import com.noob.commons.dao.UserRepository;
+import com.noob.commons.model.constants.PackageConstants;
 import com.noob.commons.model.security.User;
 import com.noob.resourceserver.dao.IngredientRepository;
 import com.noob.resourceserver.dao.TacoRepository;
@@ -20,16 +21,16 @@ import java.util.Arrays;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-        "com.noob.resourceserver.**",
-        "com.noob.commons.**"
+        PackageConstants.RESOURCE_PACKAGE,
+        PackageConstants.COMMONS_PACKAGE,
 })
 @EntityScan(basePackages = {
-        "com.noob.resourceserver.**",
-        "com.noob.commons.**"
+        PackageConstants.RESOURCE_PACKAGE,
+        PackageConstants.COMMONS_PACKAGE,
 })
 @EnableJpaRepositories(basePackages = {
-        "com.noob.resourceserver.**",
-        "com.noob.commons.**"
+        PackageConstants.RESOURCE_PACKAGE,
+        PackageConstants.COMMONS_PACKAGE,
 })
 public class ResourceServerApplication {
 
