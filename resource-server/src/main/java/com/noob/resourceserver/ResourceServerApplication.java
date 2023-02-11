@@ -12,15 +12,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
-@SpringBootApplication
-@ComponentScan(basePackages = {
+@SpringBootApplication(scanBasePackages = {
         PackageConstants.RESOURCE_PACKAGE,
         PackageConstants.COMMONS_PACKAGE,
 })
@@ -122,9 +120,12 @@ public class ResourceServerApplication {
                     flourTortilla, cornTortilla, tomatoes, lettuce, salsa));
             tacoRepo.save(taco3);
 
-            userRepository.save(new User("user", encoder.encode("123456"),
+            /*userRepository.save(new User("user", encoder.encode("123456"), "ROLE_ADMIN",
                     "test_fullname", "test_street", "test_city",
                     "test_state", "test_zip", "test_phone_number"));
+*/
+            userRepository.save(new User("user",
+                    encoder.encode("123456"), "ROLE_ADMIN"));
         };
     }
 

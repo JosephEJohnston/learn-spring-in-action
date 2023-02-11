@@ -13,7 +13,7 @@
         <dependency>
             <groupId>com.noob</groupId>
             <artifactId>commons</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${commons.version}</version>
         </dependency>
     </dependencies>
 </project>
