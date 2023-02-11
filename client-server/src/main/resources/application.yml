@@ -4,12 +4,14 @@ spring:
       client:
         registration:
           taco-admin-client:
-            provider: tacocloud
+            provider: taco-cloud
             client-id: taco-admin-client
             client-secret: secret
             authorization-grant-type: authorization_code
-            redirect-uri: "http://127.0.0.1:8081/login/oauth2/code/{registrationId}"
+            redirect-uri: http://127.0.0.1:8082/login/oauth2/code/{registrationId}
             scope: writeIngredients,deleteIngredients,openid
         provider:
-          tacocloud:
+          taco-cloud:
             issuer-uri: http://authserver:8081
+server:
+  port: 8082

@@ -69,7 +69,7 @@ public class AuthorizationServerConfig {
                         // 重定向 url
                         // 授权服务器在获得授权之后会重定向到这些 URL
                         .redirectUri(
-                                "http://127.0.0.1:8080/login/oauth2/code/taco-admin-client")
+                                "http://127.0.0.1:8082/login/oauth2/code/taco-admin-client")
 
                         // 客户端允许访问的 OAuth 2 scope
                         .scope("writeIngredients")
@@ -88,7 +88,7 @@ public class AuthorizationServerConfig {
     @Bean
     public AuthorizationServerSettings authorizationServerSettings() {
         return AuthorizationServerSettings.builder()
-                .issuer("http://localhost:8081")
+                .issuer("http://authserver:8081")
                 .build();
     }
 
