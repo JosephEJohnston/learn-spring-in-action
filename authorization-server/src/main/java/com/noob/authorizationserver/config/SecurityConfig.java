@@ -21,12 +21,10 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/userinfo").permitAll()
                                 .requestMatchers("/error").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .csrf().disable()
-                // 用 formLogin 会导致 clientServer 没法启动
                 .formLogin().and()
                 .oauth2ResourceServer(configurer -> configurer.jwt().decoder(jwtDecoder))
                 .build();

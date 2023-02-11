@@ -22,8 +22,6 @@ public class ClientServerConfig {
         httpSecurity
                 .authorizeHttpRequests(auth ->
                         auth
-                                .requestMatchers("/login/oauth2/code/taco-admin-client").permitAll()
-                                .requestMatchers("/oauth2/authorization/taco-admin-client").permitAll()
                                 .requestMatchers("/error").permitAll()
                                 .anyRequest().authenticated()
                 )
