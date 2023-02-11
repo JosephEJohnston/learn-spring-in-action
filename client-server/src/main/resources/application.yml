@@ -9,7 +9,7 @@ spring:
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: http://127.0.0.1:8082/login/oauth2/code/{registrationId}
-            scope: writeIngredients,deleteIngredients,openid
+            scope: writeIngredients,deleteIngredients # not to add openid now
         provider:
           taco-cloud:
             issuer-uri: http://authserver:8081

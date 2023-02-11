@@ -18,10 +18,13 @@ public class SecurityConfig {
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .authorizeHttpRequests(authorizeRequests ->
-                        authorizeRequests.anyRequest().authenticated()
+                        authorizeRequests
+                                .requestMatchers("/").permitAll()
+                                .anyRequest().authenticated()
                 )
+                .csrf().disable()
                 // 用 formLogin 会导致 clientServer 没法启动
-                //.formLogin().and()
+                .formLogin().and()
                 .build();
     }
 
