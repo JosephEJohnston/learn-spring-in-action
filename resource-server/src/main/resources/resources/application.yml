@@ -27,6 +27,17 @@ spring:
     rest:
       base-path: /dataApi # 指定 spring-rest 生成的基础路径，注意字符转义问题
 
+  artemis:
+    host: 127.0.0.1
+    port: 61617
+    user: tacoweb
+    password: l3tm31n
+
+  jms:
+    template:
+      default-destination: tacocloud.order.queue
+
+
 #  profiles:
 #    active:
 #      - prod
