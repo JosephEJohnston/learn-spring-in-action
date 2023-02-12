@@ -27,15 +27,17 @@ spring:
     rest:
       base-path: /dataApi # 指定 spring-rest 生成的基础路径，注意字符转义问题
 
-  artemis:
-    host: 127.0.0.1
-    port: 61617
-    user: tacoweb
+  rabbitmq:
+    host: localhost
+    port: 5673
+    username: tacoweb
     password: l3tm31n
-
-  jms:
     template:
-      default-destination: tacocloud.order.queue
+      exchange: tacocloud.order # 所有未指明交换机的消息会自动发送至名为 tacocloud.order 的交换机
+      routing-key: kitchens.central
+
+
+
 
 
 #  profiles:

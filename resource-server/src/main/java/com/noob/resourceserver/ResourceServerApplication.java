@@ -7,8 +7,6 @@ import com.noob.resourceserver.service.IngredientRepository;
 import com.noob.resourceserver.service.TacoRepository;
 import com.noob.commons.model.Ingredient;
 import com.noob.resourceserver.model.Taco;
-import jakarta.jms.Destination;
-import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -63,11 +61,6 @@ public class ResourceServerApplication {
                     "test_state", "test_zip", "test_phone_number"));
         };
     }*/
-
-    @Bean
-    public Destination orderQueue() {
-        return new ActiveMQQueue("tacocloud.order.queue");
-    }
 
     @Bean
     public RestTemplate restTemplate() {
