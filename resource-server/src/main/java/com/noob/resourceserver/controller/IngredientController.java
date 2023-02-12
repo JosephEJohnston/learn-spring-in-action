@@ -4,6 +4,8 @@ import com.noob.resourceserver.service.IngredientRepository;
 import com.noob.commons.model.Ingredient;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,7 +20,10 @@ public class IngredientController {
     }
 
     @GetMapping
-    public Iterable<Ingredient> allIngredients() {
+    public Iterable<Ingredient> allIngredients(@AuthenticationPrincipal Jwt user) {
+        // 实际是 jwt 携带有两个 scope 权限，通过了校验
+        // System.out.println(user);
+
         return ingredientRepository.findAll();
     }
 
