@@ -7,12 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -23,13 +21,6 @@ public class SecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public JwtDecoder jwtDecoder() {
-        return NimbusJwtDecoder
-                .withJwkSetUri("http://localhost:8081/oauth2/jwks")
-                .build();
     }
 
     @Bean
@@ -54,10 +45,11 @@ public class SecurityConfig {
                             .hasAuthority("SCOPE_writeIngredients")
                         .requestMatchers(HttpMethod.DELETE, "/api/ingredients")
                             .hasAuthority("SCOPE_deleteIngredients")
-                        .requestMatchers("/", "/**").permitAll()
+                        .requestMatchers("/", "error").permitAll()
+                        .anyRequest().authenticated()
                 )
                 .formLogin()
-                .loginPage("/login")
+                .loginPage("http://localhost:8081/login")
                 //.defaultSuccessUrl("/design", true)
                 .and()
                 //.oauth2Login()
@@ -67,7 +59,11 @@ public class SecurityConfig {
                 .logout()
                 .and()
                 //.csrf().disable()
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+                .oauth2ResourceServer(server -> server.jwt(
+                        jwt -> jwt.decoder(
+                                NimbusJwtDecoder
+                                        .withJwkSetUri("http://localhost:8081/oauth2/jwks")
+                                        .build())))
                 .build();
     }
 }

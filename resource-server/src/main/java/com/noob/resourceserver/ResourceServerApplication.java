@@ -126,6 +126,7 @@ public class ResourceServerApplication {
 */
             userRepository.save(new User("user",
                     encoder.encode("123456"), "ROLE_ADMIN"));
+            userRepository.save(new User("tacochef", encoder.encode("password"), "ROLE_ADMIN"));
         };
     }
 
