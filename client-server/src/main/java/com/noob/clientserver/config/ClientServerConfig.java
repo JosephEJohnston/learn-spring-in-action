@@ -23,6 +23,7 @@ public class ClientServerConfig {
                 .authorizeHttpRequests(auth ->
                         auth
                                 .requestMatchers("/error").permitAll()
+                                .requestMatchers("/test").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .oauth2Login(oauth2Login -> oauth2Login.loginPage("/oauth2/authorization/taco-admin-client"))

@@ -18,10 +18,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
-@SpringBootApplication(scanBasePackages = {
-        PackageConstants.RESOURCE_PACKAGE,
-        PackageConstants.COMMONS_PACKAGE,
-})
+@SpringBootApplication
 @EntityScan(basePackages = {
         PackageConstants.RESOURCE_PACKAGE,
         PackageConstants.COMMONS_PACKAGE,
