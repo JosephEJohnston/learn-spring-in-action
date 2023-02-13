@@ -27,14 +27,13 @@ spring:
     rest:
       base-path: /dataApi # 指定 spring-rest 生成的基础路径，注意字符转义问题
 
-  rabbitmq:
-    host: localhost
-    port: 5673
-    username: tacoweb
-    password: l3tm31n
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    consumer:
+      group-id: taco.test
     template:
-      exchange: tacocloud.order # 所有未指明交换机的消息会自动发送至名为 tacocloud.order 的交换机
-      routing-key: kitchens.central
+      default-topic: tacocloud.orders.topic
 
 
 

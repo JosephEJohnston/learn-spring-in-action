@@ -1,0 +1,20 @@
+version: '2'
+
+# 让容器运行在同一网络下
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:latest'
+    networks:
+      - app-tier
+  kafka:
+    image: 'bitnami/kafka:latest'
+    networks:
+      - app-tier
+  resource-server:
+    image: resource-server:0.0.1-SNAPSHOT
+    networks:
+      - app-tier

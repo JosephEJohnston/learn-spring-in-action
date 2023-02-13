@@ -4,6 +4,7 @@ import com.noob.resourceserver.model.TacoOrder;
 import com.noob.resourceserver.service.OrderMessagingService;
 import com.noob.resourceserver.service.OrderRepository;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -20,6 +21,13 @@ public class OrderApiController {
     ) {
         this.orderRepository = orderRepository;
         this.messagingService = messagingService;
+    }
+
+    @GetMapping
+    public ResponseEntity<String> testSendOrder() {
+        messagingService.sendTest();
+
+        return ResponseEntity.ok("Success.");
     }
 
     @PostMapping(consumes = "application/json")

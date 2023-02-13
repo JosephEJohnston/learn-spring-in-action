@@ -62,4 +62,13 @@ public class TacoOrder implements Serializable {
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
     }
+
+    public static TacoOrder ofEmpty() {
+        TacoOrder order = new TacoOrder();
+
+        order.setId(-1L);
+
+        return order;
+    }
+
 }
