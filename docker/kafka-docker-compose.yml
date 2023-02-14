@@ -20,3 +20,5 @@ services:
   resource-server:
     network_mode: "host"
     image: resource-server:0.0.1-SNAPSHOT
+    ports:
+      - "8443:8443"

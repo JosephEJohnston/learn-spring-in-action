@@ -45,7 +45,7 @@ public class SecurityConfig {
                             .hasAuthority("SCOPE_writeIngredients")
                         .requestMatchers(HttpMethod.DELETE, "/api/ingredients")
                             .hasAuthority("SCOPE_deleteIngredients")
-                        .requestMatchers("/", "error").permitAll()
+                        .requestMatchers("/", "/api/orders", "error").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin()
@@ -58,7 +58,7 @@ public class SecurityConfig {
                 //.and()
                 .logout()
                 .and()
-                //.csrf().disable()
+                .csrf().disable()
                 .oauth2ResourceServer(server -> server.jwt(
                         jwt -> jwt.decoder(
                                 NimbusJwtDecoder
