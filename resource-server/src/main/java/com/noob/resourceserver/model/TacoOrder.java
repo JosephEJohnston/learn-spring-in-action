@@ -17,6 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@ToString
 public class TacoOrder implements Serializable {
 
     @Serial
@@ -54,6 +55,7 @@ public class TacoOrder implements Serializable {
     private String ccCVV;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Taco> tacos = new ArrayList<>();
 
     @ManyToOne

@@ -49,7 +49,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin()
-                .loginPage("http://localhost:8081/login")
+                //.loginPage("http://localhost:8081/login")
                 //.defaultSuccessUrl("/design", true)
                 .and()
                 //.oauth2Login()
@@ -59,11 +59,11 @@ public class SecurityConfig {
                 .logout()
                 .and()
                 .csrf().disable()
-                .oauth2ResourceServer(server -> server.jwt(
+                /*.oauth2ResourceServer(server -> server.jwt(
                         jwt -> jwt.decoder(
                                 NimbusJwtDecoder
                                         .withJwkSetUri("http://localhost:8081/oauth2/jwks")
-                                        .build())))
+                                        .build())))*/
                 .build();
     }
 }

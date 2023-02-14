@@ -58,8 +58,8 @@ taco:
   orders:
     pageSize: 10
 
-#logging:
-#  level:
-#    org.springframework.web: trace
-#    org.springframework.security: trace
-#    org.springframework.security.oauth2: trace
+logging:
+  level:
+    org.springframework.web: trace
+    org.springframework.security: trace
+    org.springframework.security.oauth2: trace
