@@ -29,7 +29,7 @@ spring:
 
   kafka:
     bootstrap-servers:
-      - localhost:9092
+      - kafka:9092 # hosts 配置 127.0.0.1 kafka
     consumer:
       group-id: taco.test
     template:

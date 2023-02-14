@@ -1,9 +1,9 @@
 version: '2'
 
 # 让容器运行在同一网络下
-#networks:
-#  app-tier:
-#    driver: bridge
+networks:
+  app-tier:
+    driver: bridge
 
 services:
   zookeeper:
@@ -11,16 +11,25 @@ services:
 #    network_mode: "host"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - app-tier
   kafka:
     image: 'bitnami/kafka:latest'
 #    network_mode: "host"
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_ADVERTISED_LISTENERS=plaintext://kafka:9092
+    networks:
+      - app-tier
     depends_on:
       - zookeeper
+    ports:
+      - "9092:9092"
   resource-server:
 #    network_mode: "host"
+    networks:
+      - app-tier
     image: resource-server:0.0.1-SNAPSHOT
     ports:
       - "8443:8443"
