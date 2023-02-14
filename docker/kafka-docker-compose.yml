@@ -8,17 +8,19 @@ version: '2'
 services:
   zookeeper:
     image: 'bitnami/zookeeper:latest'
-    network_mode: "host"
+#    network_mode: "host"
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
   kafka:
     image: 'bitnami/kafka:latest'
-    network_mode: "host"
+#    network_mode: "host"
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=0.0.0.0:2181
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+    depends_on:
+      - zookeeper
   resource-server:
-    network_mode: "host"
+#    network_mode: "host"
     image: resource-server:0.0.1-SNAPSHOT
     ports:
       - "8443:8443"
