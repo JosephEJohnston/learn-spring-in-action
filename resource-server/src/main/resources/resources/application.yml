@@ -43,8 +43,8 @@ spring:
 #    active:
 #      - prod
 
-#server:
-#  port: 0 # 设置为 0 时，会任选可用端口启动
+server:
+  port: 8443 # 设置为 0 时，会任选可用端口启动
 
 # 使用 https
 #server:
