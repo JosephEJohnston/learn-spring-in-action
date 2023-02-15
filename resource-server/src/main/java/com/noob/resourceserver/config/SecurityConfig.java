@@ -50,16 +50,16 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
                 .formLogin()
+                .and()
                 //.loginPage("http://localhost:8081/login")
                 //.defaultSuccessUrl("/design", true)
-                .and()
                 //.oauth2Login()
                 // 可以在 login 页面中提供 Facebook 登录的链接
                 //.loginPage("/login")
-                //.and()
                 .logout()
                 .and()
                 .csrf().disable()
+                // 如果真要做资源服务器，理论上是不对外网开放的
                 .oauth2ResourceServer(server -> server.jwt(
                         jwt -> jwt.decoder(
                                 NimbusJwtDecoder
