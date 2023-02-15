@@ -45,7 +45,8 @@ public class SecurityConfig {
                             .hasAuthority("SCOPE_writeIngredients")
                         .requestMatchers(HttpMethod.DELETE, "/api/ingredients")
                             .hasAuthority("SCOPE_deleteIngredients")
-                        .requestMatchers("/", "/api/orders", "error").permitAll()
+                        .requestMatchers("/", "/api/orders", "/error").permitAll()
+                        .requestMatchers("/images/**", "/favicon.ico").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin()
@@ -59,11 +60,11 @@ public class SecurityConfig {
                 .logout()
                 .and()
                 .csrf().disable()
-                /*.oauth2ResourceServer(server -> server.jwt(
+                .oauth2ResourceServer(server -> server.jwt(
                         jwt -> jwt.decoder(
                                 NimbusJwtDecoder
                                         .withJwkSetUri("http://localhost:8081/oauth2/jwks")
-                                        .build())))*/
+                                        .build())))
                 .build();
     }
 }
