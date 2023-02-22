@@ -1,5 +1,6 @@
 package com.noob.resourceserver.model;
 
+import com.noob.commons.model.Taco;
 import com.noob.commons.model.security.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;

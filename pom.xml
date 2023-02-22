@@ -14,6 +14,7 @@
         <module>resource-server</module>
         <module>authorization-server</module>
         <module>client-server</module>
+        <module>email-server</module>
         <module>commons</module>
     </modules>
 
@@ -78,6 +79,8 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
+        <!-- 为自定义配置提供自动生成元数据的支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

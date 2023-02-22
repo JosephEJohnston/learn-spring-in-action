@@ -1,14 +1,16 @@
-package com.noob.resourceserver.model;
+package com.noob.commons.model;
 
-import com.noob.commons.model.Ingredient;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.rest.core.annotation.RestResource;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -33,5 +35,21 @@ public class Taco {
     private List<Ingredient> ingredients;
 
     public Taco() {
+    }
+
+    public Taco(String name) {
+        this.name = name;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setIngredients(ArrayList<String> ingredients) {
+        this.ingredients = Optional.ofNullable(ingredients)
+                .map(list -> list.stream()
+                        .map(Ingredient::new)
+                        .collect(Collectors.toList()))
+                .orElse(new ArrayList<>());
     }
 }

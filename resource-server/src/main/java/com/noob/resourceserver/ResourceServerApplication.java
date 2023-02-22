@@ -6,7 +6,7 @@ import com.noob.commons.model.security.User;
 import com.noob.resourceserver.service.IngredientRepository;
 import com.noob.resourceserver.service.TacoRepository;
 import com.noob.commons.model.Ingredient;
-import com.noob.resourceserver.model.Taco;
+import com.noob.commons.model.Taco;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
