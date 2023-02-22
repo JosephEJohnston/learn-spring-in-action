@@ -34,7 +34,12 @@
             <artifactId>spring-integration-file</artifactId>
         </dependency>
 
-
+        <!-- 响应式编程 -->
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
