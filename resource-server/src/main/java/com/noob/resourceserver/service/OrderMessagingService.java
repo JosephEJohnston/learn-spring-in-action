@@ -1,6 +1,6 @@
 package com.noob.resourceserver.service;
 
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.model.TacoOrder;
 
 public interface OrderMessagingService {
 

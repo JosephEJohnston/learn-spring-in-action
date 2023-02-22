@@ -1,7 +1,7 @@
 package com.noob.resourceserver.controller;
 
 import com.noob.commons.dao.UserRepository;
-import com.noob.resourceserver.model.RegistrationForm;
+import com.noob.commons.model.RegistrationForm;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

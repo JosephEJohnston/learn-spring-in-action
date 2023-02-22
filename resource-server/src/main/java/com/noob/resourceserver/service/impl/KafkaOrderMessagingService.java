@@ -1,6 +1,6 @@
 package com.noob.resourceserver.service.impl;
 
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.model.TacoOrder;
 import com.noob.resourceserver.service.OrderMessagingService;
 import jakarta.annotation.Resource;
 import org.springframework.kafka.core.KafkaTemplate;

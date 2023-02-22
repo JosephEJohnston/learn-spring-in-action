@@ -1,8 +1,8 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.model.TacoOrder;
 import com.noob.resourceserver.service.OrderMessagingService;
-import com.noob.resourceserver.service.OrderRepository;
+import com.noob.commons.dao.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

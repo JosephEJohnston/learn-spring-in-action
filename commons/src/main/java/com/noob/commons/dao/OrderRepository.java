@@ -1,7 +1,7 @@
-package com.noob.resourceserver.service;
+package com.noob.commons.dao;
 
 import com.noob.commons.model.security.User;
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.model.TacoOrder;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,9 +1,9 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.service.IngredientRepository;
+import com.noob.commons.dao.IngredientRepository;
 import com.noob.commons.model.Ingredient;
 import com.noob.commons.model.Taco;
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.model.TacoOrder;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

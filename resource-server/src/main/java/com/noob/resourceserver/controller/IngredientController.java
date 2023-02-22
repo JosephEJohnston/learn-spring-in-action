@@ -1,6 +1,6 @@
 package com.noob.resourceserver.controller;
 
-import com.noob.resourceserver.service.IngredientRepository;
+import com.noob.commons.dao.IngredientRepository;
 import com.noob.commons.model.Ingredient;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -2,8 +2,8 @@ package com.noob.resourceserver.controller;
 
 import com.noob.commons.model.security.User;
 import com.noob.resourceserver.component.OrderProps;
-import com.noob.resourceserver.service.OrderRepository;
-import com.noob.resourceserver.model.TacoOrder;
+import com.noob.commons.dao.OrderRepository;
+import com.noob.commons.model.TacoOrder;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;

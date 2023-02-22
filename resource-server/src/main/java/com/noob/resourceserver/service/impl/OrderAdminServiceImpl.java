@@ -1,7 +1,7 @@
 package com.noob.resourceserver.service.impl;
 
 import com.noob.resourceserver.service.OrderAdminService;
-import com.noob.resourceserver.service.OrderRepository;
+import com.noob.commons.dao.OrderRepository;
 import jakarta.annotation.Resource;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.noob.resourceserver.model;
+package com.noob.commons.model;
 
 import com.noob.commons.model.security.User;
 import lombok.Data;

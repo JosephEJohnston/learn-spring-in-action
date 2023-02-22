@@ -1,6 +1,6 @@
 package com.noob.resourceserver.component;
 
-import com.noob.resourceserver.service.IngredientRepository;
+import com.noob.commons.dao.IngredientRepository;
 import com.noob.commons.model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
