@@ -2,28 +2,25 @@ package com.noob.resourceserver.integration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.integration.annotation.Filter;
-import org.springframework.integration.annotation.Router;
-import org.springframework.integration.annotation.Splitter;
+import org.springframework.integration.annotation.*;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.channel.PublishSubscribeChannel;
-import org.springframework.integration.channel.QueueChannel;
+import org.springframework.integration.core.MessageSource;
 import org.springframework.integration.dsl.IntegrationFlow;
 import org.springframework.integration.dsl.MessageChannels;
 import org.springframework.integration.file.dsl.Files;
 import org.springframework.integration.file.support.FileExistsMode;
-import org.springframework.integration.router.AbstractMessageRouter;
 import org.springframework.integration.router.MessageRouter;
 import org.springframework.integration.router.PayloadTypeRouter;
-import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.MessageHandler;
 import org.springframework.messaging.MessageHeaders;
+import org.springframework.messaging.support.GenericMessage;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Configuration
 public class FileWriterIntegrationConfig {
@@ -179,5 +176,43 @@ public class FileWriterIntegrationConfig {
                         .subFlowMapping("ODD", sf -> sf.transform()))*/
 
                 .get();
+    }
+
+    @Bean
+    // 服务激活器，也可用 DSL 风格配置
+    @ServiceActivator(inputChannel = "someChannel")
+    public MessageHandler sysoutHandler() {
+        // 当得到消息后，它会将消息的载荷打印至 stdout
+        return message -> System.out.println("Message payload: " + message.getPayload());
+    }
+
+    /*
+    // 服务激活器是一个 GenericHandler，它会接收载荷类型为 EmailOrder 的消息
+    // 订单抵达时，我们会通过一个存储库将它保存起来，并返回保存之后的 EmailOrder
+    // 这个 EmailOrder 随后被发送至名为 completeChannel 的输出通道
+    @Bean
+    @ServiceActivator(inputChannel = "orderChannel", outputChannel = "completeChannel")
+    public GenericHandler<EmailOrder> orderHandler(OrderRepository orderRepository) {
+        return ((payload, headers) -> {
+            return orderRepository.save(payload);
+        });
+    }*/
+
+    // 网关，也可 dsl 配置
+    @Component
+    @MessagingGateway(defaultRequestChannel = "inChannel", defaultReplyChannel = "outChannel")
+    public interface UpperCaseGateway {
+        // 当 uppercase 被调用时，给定的 String 会发布到集成流中，进入到 inChannel
+        // 当数据进入名为 outChannel 通道时，都会从 uppercase 方法返回
+        String uppercase(String in);
+    }
+
+    @Bean
+    @InboundChannelAdapter(
+            poller = @Poller(fixedRate = "1000"), channel = "numberChannel")
+    public MessageSource<Integer> numberSource() {
+        AtomicInteger integer = new AtomicInteger();
+
+        return () -> new GenericMessage<>(integer.getAndIncrement());
     }
 }
