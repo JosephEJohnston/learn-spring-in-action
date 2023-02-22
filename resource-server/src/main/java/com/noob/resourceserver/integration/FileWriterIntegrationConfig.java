@@ -22,7 +22,7 @@ import java.io.File;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@Configuration
+//@Configuration
 public class FileWriterIntegrationConfig {
 
     @Bean
@@ -207,12 +207,12 @@ public class FileWriterIntegrationConfig {
         String uppercase(String in);
     }
 
-    @Bean
+    /*@Bean
     @InboundChannelAdapter(
             poller = @Poller(fixedRate = "1000"), channel = "numberChannel")
     public MessageSource<Integer> numberSource() {
         AtomicInteger integer = new AtomicInteger();
 
         return () -> new GenericMessage<>(integer.getAndIncrement());
-    }
+    }*/
 }
