@@ -1,21 +1,21 @@
 package com.noob.commons.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.Hibernate;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Getter
 @Setter
 @Entity
-
 // 指定生成 rest-api 的路径名
 @RestResource(rel = "tacos", path = "tacos")
 public class Taco {
@@ -45,11 +45,32 @@ public class Taco {
         this.ingredients = ingredients;
     }
 
-    public void setIngredients(ArrayList<String> ingredients) {
+    @JsonIgnore
+    public void setIngredients(String[] ingredients) {
         this.ingredients = Optional.ofNullable(ingredients)
-                .map(list -> list.stream()
+                .map(list -> Stream.of(ingredients)
                         .map(Ingredient::new)
                         .collect(Collectors.toList()))
                 .orElse(new ArrayList<>());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Taco taco = (Taco) o;
+
+        if (!Objects.equals(id, taco.id)) return false;
+        if (!Objects.equals(name, taco.name)) return false;
+        return Objects.equals(ingredients, taco.ingredients);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (ingredients != null ? ingredients.hashCode() : 0);
+        return result;
     }
 }

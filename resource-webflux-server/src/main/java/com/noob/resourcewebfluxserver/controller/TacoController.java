@@ -2,7 +2,6 @@ package com.noob.resourcewebfluxserver.controller;
 
 import com.noob.commons.model.Taco;
 import com.noob.resourcewebfluxserver.dao.TacoRepository;
-import jakarta.annotation.Resource;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -13,8 +12,11 @@ import reactor.core.publisher.Mono;
 @CrossOrigin(origins = "*")
 public class TacoController {
 
-    @Resource
-    private TacoRepository tacoRepo;
+    private final TacoRepository tacoRepo;
+
+    public TacoController(TacoRepository tacoRepo) {
+        this.tacoRepo = tacoRepo;
+    }
 
     @GetMapping(params = "recent")
     public Flux<Taco> recentTacos() {

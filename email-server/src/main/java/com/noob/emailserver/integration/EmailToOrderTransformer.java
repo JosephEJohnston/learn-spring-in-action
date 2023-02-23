@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class EmailToOrderTransformer extends AbstractMailMessageTransformer<EmailOrder> {
@@ -54,7 +55,7 @@ public class EmailToOrderTransformer extends AbstractMailMessageTransformer<Emai
                 String tacoName = lineSplit[0].trim();
                 String ingredients = lineSplit[1].trim();
                 String[] ingredientsSplit = ingredients.split(",");
-                ArrayList<String> ingredientCodes = new ArrayList<>();
+                List<String> ingredientCodes = new ArrayList<>();
                 for (String ingredientName : ingredientsSplit) {
                     String code = lookupIngredientCode(ingredientName.trim());
                     if (code != null) {
@@ -62,7 +63,7 @@ public class EmailToOrderTransformer extends AbstractMailMessageTransformer<Emai
                     }
                 }
                 Taco taco = new Taco(tacoName);
-                taco.setIngredients(ingredientCodes);
+                taco.setIngredients(ingredientCodes.toArray(new String[0]));
                 order.addTaco(taco);
             }
         }
