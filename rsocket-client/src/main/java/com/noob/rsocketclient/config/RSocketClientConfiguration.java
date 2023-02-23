@@ -1,5 +1,6 @@
 package com.noob.rsocketclient.config;
 
+import com.noob.rsocketcommon.model.StockQuote;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
@@ -20,6 +21,17 @@ public class RSocketClientConfiguration {
                     .data("Hello RSocket!")
                     .retrieveMono(String.class)
                     .subscribe(response -> log.info("Got a response: {}", response));
+
+            String stockSymbol = "XYZ";
+            tcp.route("stock/{symbol}", stockSymbol)
+                    .retrieveFlux(StockQuote.class)
+                    .doOnNext(stockQuote -> log.info(
+                            "Price of {}: {} (at {})",
+                            stockQuote.getSymbol(),
+                            stockQuote.getPrice(),
+                            stockQuote.getTimestamp()
+                    ))
+                    .subscribe();
         };
     }
 

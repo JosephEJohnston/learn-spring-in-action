@@ -13,7 +13,7 @@ public class RsocketClientApplication {
         // In a complete example, this isn't necessary because the Tomcat server or some
         // other component will likely keep the app alive. But this example is too simple
         // and the main thread could end too quickly, before the message can be sent.
-        Thread.sleep(1000);
+        Thread.sleep(5000);
     }
 
 }
