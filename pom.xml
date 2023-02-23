@@ -16,6 +16,8 @@
         <module>oauth2-client-server</module>
         <module>resource-webflux-server</module>
         <module>integration-email-server</module>
+        <module>rsocket-server</module>
+        <module>rsocket-client</module>
         <module>commons</module>
     </modules>
 
