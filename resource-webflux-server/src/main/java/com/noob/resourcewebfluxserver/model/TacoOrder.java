@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -28,10 +29,15 @@ public class TacoOrder {
     private String ccCVV;
 
     private Set<Long> tacoIds = new LinkedHashSet<>();
-    private List<Taco> tacos = new ArrayList<>();
+
+    @Transient // 让 r2dbc 不持久化此字段
+    private transient List<Taco> tacos = new ArrayList<>();
 
 
     public void addTaco(Taco taco) {
         this.tacos.add(taco);
+        if (taco.getId() != null) {
+            this.tacoIds.add(taco.getId());
+        }
     }
 }

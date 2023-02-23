@@ -10,7 +10,7 @@ create table if not exists Taco
 (
     id             identity,
     name           varchar(50) not null,
-    ingredient_ids integer array
+    ingredient_ids bigint array
 );
 
 create table if not exists Taco_Order
@@ -24,6 +24,6 @@ create table if not exists Taco_Order
     cc_number       varchar(16) not null,
     cc_expiration   varchar(5)  not null,
     cc_cvv          varchar(3)  not null,
-    taco_ids        integer array
+    taco_ids        bigint array
 );
 
