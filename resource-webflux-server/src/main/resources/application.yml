@@ -1,0 +1,21 @@
+
+management:
+  endpoints:
+    web:
+#      base-path: /management # change basic path
+      exposure:
+        include: '*'
+        exclude: threaddump,heapdump
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+# /info will contain this
+info:
+  contact:
+    email: support@tacocloud.com
+    phone: 822-625-6831
+
