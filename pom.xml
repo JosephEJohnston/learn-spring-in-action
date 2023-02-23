@@ -11,11 +11,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>resource-server</module>
+        <module>oauth2-resource-server</module>
+        <module>oauth2-authorization-server</module>
+        <module>oauth2-client-server</module>
         <module>resource-webflux-server</module>
-        <module>authorization-server</module>
-        <module>client-server</module>
-        <module>email-server</module>
+        <module>integration-email-server</module>
         <module>commons</module>
     </modules>
 

@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>taco-cloud</artifactId>
         <groupId>com.noob</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>authorization-server</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>client-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>authorization-server</name>
-
-    <properties>
-        <spring-security-oauth2-authorization-server.version>1.0.0</spring-security-oauth2-authorization-server.version>
-    </properties>
+    <name>oauth2-client-server</name>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.noob</groupId>
             <artifactId>commons</artifactId>
@@ -27,12 +19,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-oauth2-authorization-server</artifactId>
-            <version>${spring-security-oauth2-authorization-server.version}</version>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
         </dependency>
     </dependencies>
 
