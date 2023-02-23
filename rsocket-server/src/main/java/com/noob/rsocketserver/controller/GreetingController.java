@@ -10,6 +10,14 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class GreetingController {
 
+    @MessageMapping("greeting")
+    public Mono<String> handleGreeting(Mono<String> greetingMono) {
+        return greetingMono
+            .doOnNext(greeting ->
+                    log.info("Received a greeting: {}", greeting))
+            .map(greeting -> "Hello back to you!");
+    }
+
     // 请求-响应通信模型
     @MessageMapping("greeting/{name}")
     public Mono<String> handleGreeting(

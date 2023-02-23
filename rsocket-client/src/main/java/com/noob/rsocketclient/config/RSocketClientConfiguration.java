@@ -12,6 +12,7 @@ import org.springframework.messaging.rsocket.RSocketRequester;
 import reactor.core.publisher.Flux;
 
 import java.math.BigDecimal;
+import java.net.URI;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -19,7 +20,22 @@ import java.time.Instant;
 @Slf4j
 public class RSocketClientConfiguration {
 
+
     @Bean
+    public ApplicationRunner websocketSender(RSocketRequester.Builder requesterBuilder) {
+        return args -> {
+            RSocketRequester requester = requesterBuilder.websocket(
+                    URI.create("ws://localhost:8080/rsocket"));
+
+            requester
+                    .route("greeting")
+                    .data("Hello RSocket!")
+                    .retrieveMono(String.class)
+                    .subscribe(response -> log.info("Got a response: {}", response));
+        };
+    }
+
+    /*@Bean
     public ApplicationRunner sender(RSocketRequester.Builder requesterBuilder) {
         return args -> {
             RSocketRequester tcp = requesterBuilder.tcp("localhost", 7000);
@@ -64,6 +80,6 @@ public class RSocketClientConfiguration {
                             log.info(out.getPercent() + "% gratuity on " +
                                     out.getBillTotal() + " is " + out.getGratuity()));
         };
-    }
+    }*/
 
 }

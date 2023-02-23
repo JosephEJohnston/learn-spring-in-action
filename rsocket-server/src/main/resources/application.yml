@@ -2,4 +2,6 @@
 spring:
   rsocket: # rsocket base on tcp
     server:
-      port: 7000
+      # port: 7000 # tcp need it. Websocket need webflux dependency, and default run on 8080.
+      transport: websocket # tcp or websocket
+      mapping-path: /rsocket
