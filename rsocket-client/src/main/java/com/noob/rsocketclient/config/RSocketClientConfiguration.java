@@ -1,11 +1,14 @@
 package com.noob.rsocketclient.config;
 
+import com.noob.rsocketcommon.model.Alert;
 import com.noob.rsocketcommon.model.StockQuote;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.rsocket.RSocketRequester;
+
+import java.time.Instant;
 
 @Configuration
 @Slf4j
@@ -32,6 +35,13 @@ public class RSocketClientConfiguration {
                             stockQuote.getTimestamp()
                     ))
                     .subscribe();
+
+            tcp.route("alert")
+                    .data(new Alert(Alert.Level.RED, "Craig", Instant.now()))
+                    .send()
+                    .subscribe();
+
+            log.info("Alert sent");
         };
     }
 
