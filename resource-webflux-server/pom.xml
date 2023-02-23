@@ -13,16 +13,26 @@
     <description>resource-webflux-server</description>
 
     <dependencies>
-        <dependency>
+        <!--<dependency>
             <groupId>com.noob</groupId>
             <artifactId>commons</artifactId>
             <version>${commons.version}</version>
-            <!--<exclusions>
+            <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-data-jpa</artifactId>
                 </exclusion>
-            </exclusions>-->
+            </exclusions>
+        </dependency>-->
+        <!-- jpa 与 reactive 不兼容（底层 jdbc 是阻塞式的），需要用 r2dbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.r2dbc</groupId>
+            <artifactId>r2dbc-h2</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

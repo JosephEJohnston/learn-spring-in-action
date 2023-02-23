@@ -1,7 +1,7 @@
 package com.noob.resourcewebfluxserver.controller;
 
-import com.noob.commons.model.Taco;
 import com.noob.resourcewebfluxserver.dao.TacoRepository;
+import com.noob.resourcewebfluxserver.model.Taco;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;

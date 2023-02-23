@@ -1,8 +1,7 @@
 package com.noob.resourcewebfluxserver.controller;
 
-import com.noob.commons.model.Ingredient;
-import com.noob.commons.model.Taco;
 import com.noob.resourcewebfluxserver.dao.TacoRepository;
+import com.noob.resourcewebfluxserver.model.Taco;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
