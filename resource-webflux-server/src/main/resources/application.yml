@@ -12,6 +12,9 @@ management:
   info:
     env:
       enabled: true
+    git:
+      mode: full
+      enabled: true
 
 # /info will contain this
 info:
