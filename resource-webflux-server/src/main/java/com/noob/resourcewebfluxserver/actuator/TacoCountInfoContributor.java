@@ -1,4 +1,4 @@
-package com.noob.resourcewebfluxserver.controller;
+package com.noob.resourcewebfluxserver.actuator;
 
 import com.noob.resourcewebfluxserver.dao.TacoRepository;
 import org.springframework.boot.actuate.info.Info;
