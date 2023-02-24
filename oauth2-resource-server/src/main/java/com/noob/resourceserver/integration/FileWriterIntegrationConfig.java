@@ -1,3 +1,4 @@
+/*
 package com.noob.resourceserver.integration;
 
 import org.springframework.context.annotation.Bean;
@@ -33,14 +34,13 @@ public class FileWriterIntegrationConfig {
         // return new QueueChannel();
     }
 
-    /*
     // 过滤器
     @Filter(inputChannel = "numberChannel", outputChannel = "evenNumberChannel")
     public boolean evenNumberFilter(Integer number) {
         return number % 2 == 0;
-    }*/
+    }
 
-    /*// 路由器
+    // 路由器
     @Bean
     @Router(inputChannel = "numberChannel")
     public AbstractMessageRouter evenOddRouter() {
@@ -55,7 +55,7 @@ public class FileWriterIntegrationConfig {
                 return Collections.singleton(oddChannel());
             }
         };
-    }*/
+    }
 
     // 切分器
     @Bean
@@ -137,7 +137,8 @@ public class FileWriterIntegrationConfig {
                         .fileExistsMode(FileExistsMode.APPEND)
                         .appendNewLine(true))
 
-                /*
+                */
+/*
                 //
                 .split()
                 .<Object, String> route(this::route,
@@ -146,9 +147,11 @@ public class FileWriterIntegrationConfig {
                                         .handle(this::handleBillingInfo))
                                 .subFlowMapping("LINE_ITEMS", sf -> sf
                                         .split()
-                                        .handle(this::handleLineItems)))*/
+                                        .handle(this::handleLineItems)))*//*
 
-                /*
+
+                */
+/*
                 // 切割路由 dsl 等价
                 .split(orderSplitter())
                 .<Object, String> route(
@@ -164,16 +167,19 @@ public class FileWriterIntegrationConfig {
                                         .<LineItem> handle((lineItem, h) -> {
 
                                 }))
-                )*/
+                )*//*
 
-                /*
+
+                */
+/*
                 // dsl 路由
                 .<Integer, String>route(n -> n % 2 == 0 ? "EVEN" : "ODD", mapping -> mapping
                         .subFlowMapping("EVEN", sf -> sf
                                 .<Integer, Integer>transform(n -> n * 10)
                                 .handle((i, h) -> {
                         }))
-                        .subFlowMapping("ODD", sf -> sf.transform()))*/
+                        .subFlowMapping("ODD", sf -> sf.transform()))*//*
+
 
                 .get();
     }
@@ -186,7 +192,6 @@ public class FileWriterIntegrationConfig {
         return message -> System.out.println("Message payload: " + message.getPayload());
     }
 
-    /*
     // 服务激活器是一个 GenericHandler，它会接收载荷类型为 EmailOrder 的消息
     // 订单抵达时，我们会通过一个存储库将它保存起来，并返回保存之后的 EmailOrder
     // 这个 EmailOrder 随后被发送至名为 completeChannel 的输出通道
@@ -196,7 +201,7 @@ public class FileWriterIntegrationConfig {
         return ((payload, headers) -> {
             return orderRepository.save(payload);
         });
-    }*/
+    }
 
     // 网关，也可 dsl 配置
     @Component
@@ -207,12 +212,13 @@ public class FileWriterIntegrationConfig {
         String uppercase(String in);
     }
 
-    /*@Bean
+    @Bean
     @InboundChannelAdapter(
             poller = @Poller(fixedRate = "1000"), channel = "numberChannel")
     public MessageSource<Integer> numberSource() {
         AtomicInteger integer = new AtomicInteger();
 
         return () -> new GenericMessage<>(integer.getAndIncrement());
-    }*/
+    }
 }
+*/

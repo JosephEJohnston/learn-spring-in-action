@@ -46,7 +46,10 @@
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-file</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <!-- 响应式编程 -->
         <dependency>
             <groupId>io.projectreactor</groupId>

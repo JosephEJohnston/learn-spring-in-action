@@ -35,6 +35,11 @@ spring:
     template:
       default-topic: tacocloud.orders.topic
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 
 

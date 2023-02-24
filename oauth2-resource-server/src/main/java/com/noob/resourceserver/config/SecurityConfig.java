@@ -46,6 +46,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/api/ingredients")
                             .hasAuthority("SCOPE_deleteIngredients")
                         .requestMatchers("/", "/api/orders", "/error").permitAll()
+                        .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/images/**", "/favicon.ico").permitAll()
                         .anyRequest().authenticated()
                 )
