@@ -16,10 +16,12 @@ public class TacoMetrics extends AbstractRepositoryEventListener<Taco> {
 
     public TacoMetrics(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
+
+        // 添加默认数据，否则报 404
+        meterRegistry.counter("tacocloud", "default", "0");
     }
 
     // 每当保存新的 Taco 对象，它都会得到通知
-    // 报 404，可能是因为没数据保存所致
     @Override
     protected void onAfterCreate(Taco taco) {
         List<Ingredient> ingredients = taco.getIngredients();
