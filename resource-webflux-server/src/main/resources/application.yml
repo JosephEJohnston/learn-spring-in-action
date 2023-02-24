@@ -22,3 +22,11 @@ info:
     email: support@tacocloud.com
     phone: 822-625-6831
 
+spring:
+  application:
+    name: taco-cloud
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+

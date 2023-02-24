@@ -18,6 +18,8 @@
         <module>integration-email-server</module>
         <module>rsocket-server</module>
         <module>rsocket-client</module>
+        <module>rsocket-common</module>
+        <module>admin-server</module>
         <module>commons</module>
     </modules>
 
