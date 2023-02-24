@@ -2,6 +2,7 @@ package com.noob.resourceserver.config;
 
 import com.noob.commons.dao.UserRepository;
 import com.noob.commons.model.security.User;
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -48,6 +49,10 @@ public class SecurityConfig {
                         .requestMatchers("/", "/api/orders", "/error").permitAll()
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/images/**", "/favicon.ico").permitAll()
+
+                        // 保护 actuator 的资源
+                        // .requestMatchers(EndpointRequest.toAnyEndpoint()
+                        //        .excluding("health", "info")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin()
