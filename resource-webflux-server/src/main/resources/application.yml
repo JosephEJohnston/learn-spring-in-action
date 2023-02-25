@@ -38,6 +38,8 @@ spring:
           metadata:
             user.name: user
             user.password: password
+        username: user
+        password: password
 
 #        instance:
 #          metadata:
