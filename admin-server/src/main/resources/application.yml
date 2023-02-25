@@ -3,10 +3,12 @@ server:
   port: 9090
 
 spring:
-  security:
-    user:
-      name: admin
-      password: 53cr3t
+  boot:
+    admin:
+      instance-auth:
+        enabled: true
+        default-user-name: user
+        default-password: password
 
 logging:
   level:
