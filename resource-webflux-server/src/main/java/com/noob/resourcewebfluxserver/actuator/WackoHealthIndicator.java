@@ -12,7 +12,7 @@ public class WackoHealthIndicator implements HealthIndicator {
 
     @Override
     public Health health() {
-        int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        /*int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 
         if (hour > 12) {
             return Health
@@ -28,7 +28,7 @@ public class WackoHealthIndicator implements HealthIndicator {
                     .down()
                     .withDetail("reason", "I break 10% of the time")
                     .build();
-        }
+        }*/
 
         return Health
                 .up()

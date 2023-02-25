@@ -22,6 +22,9 @@ info:
     email: support@tacocloud.com
     phone: 822-625-6831
 
+#  Failed to register application as Application(name=taco-cloud, managementUrl=http://localhost:8080/actuator,
+#  healthUrl=http://localhost:8080/actuator/health, serviceUrl=http://host.docker.internal:8080/) at spring-boot-admin
+
 spring:
   application:
     name: taco-cloud
@@ -29,10 +32,12 @@ spring:
     admin:
       client:
         url: http://localhost:9090
-        username: admin
-        password: 53cr3t
+#        username: admin
+#        password: 53cr3t
         instance:
           management-base-url: http://localhost:8080
+          service-url: http://localhost:8080
+
 #        instance:
 #          metadata:
 #            user.name: admin
