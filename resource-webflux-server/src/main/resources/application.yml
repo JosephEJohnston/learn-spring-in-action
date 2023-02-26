@@ -5,7 +5,10 @@ management:
 #      base-path: /management # change basic path
       exposure:
         include: '*'
-        exclude: threaddump,heapdump
+#        exclude: threaddump,heapdump
+    jmx:
+      exposure:
+        include: '*'
   endpoint:
     health:
       show-details: always
@@ -26,6 +29,8 @@ info:
 #  healthUrl=http://localhost:8080/actuator/health, serviceUrl=http://host.docker.internal:8080/) at spring-boot-admin
 
 spring:
+  jmx:
+    enabled: true
   application:
     name: taco-cloud
   boot:
