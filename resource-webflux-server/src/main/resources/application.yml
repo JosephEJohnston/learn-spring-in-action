@@ -1,4 +1,7 @@
 
+server:
+  shutdown: graceful
+
 management:
   endpoints:
     web:
@@ -12,6 +15,8 @@ management:
   endpoint:
     health:
       show-details: always
+      probes:
+        enabled: true # 启用存活和就绪探针
   info:
     env:
       enabled: true
@@ -29,6 +34,8 @@ info:
 #  healthUrl=http://localhost:8080/actuator/health, serviceUrl=http://host.docker.internal:8080/) at spring-boot-admin
 
 spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 20s # 优雅关机时间
   jmx:
     enabled: true
   application:
